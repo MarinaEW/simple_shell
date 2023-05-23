@@ -5,6 +5,6 @@
  */
 int main(void)
 {
-printf("Simole Shell Project/n");
+printf("Simple Shell Project/n");
 return (0);
 }
