@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * main - entry point
  * @argc: no. of characters
@@ -7,22 +6,21 @@
  * @env: returns the environment
  * Return: 0 (success)
  */
-
 int main(int argc, char *argv[], char **env)
 {
 	char *prompt = "#cisfun$ ";
 	char *buff = NULL;
 	size_t n = 0;
 	char read;
+	bool from_pipe = false;
 	char read_copy;
 	pid_t pid;
 
-	while (1)
+	while (1 && !from_pipe)
 	{
-		if (STDIN_FILENO == 0)
-		{
-			write(STDIN_FILENO, prompt, 9);
-		}
+		if (isatty(STDIN_FILENO) == 0)
+			from_pipe = true;
+		write(STDIN_FILENO, prompt, 9);
 		read = getline(&buff, &n, stdin);
 		if (read == -1)
 		{
