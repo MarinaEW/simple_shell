@@ -15,7 +15,9 @@ int main(int argc, char *argv[], char **env)
 	bool from_pipe = false;
 	char read_copy;
 	pid_t pid;
-
+	(void)argc;
+	(void)env;
+	(void)read_copy;
 	while (1 && !from_pipe)
 	{
 		if (isatty(STDIN_FILENO) == 0)
@@ -44,9 +46,8 @@ int main(int argc, char *argv[], char **env)
 				perror("./shell");
 		}
 		else
-		{
 			wait(NULL);
-		}
 	}
 	free(buff);
+	return (0);
 }
