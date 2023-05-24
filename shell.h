@@ -7,7 +7,10 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
+#include <errno.h>
 
 void execmd(char **argv);
 char *get_location(char *commands);
+
 #endif
