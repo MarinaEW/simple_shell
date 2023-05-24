@@ -13,7 +13,6 @@ int main(int argc, char *argv[], char **env)
 	size_t n = 0;
 	char read;
 	bool from_pipe = false;
-	char read_copy;
 	pid_t pid;
 
 	while (1 && !from_pipe)
