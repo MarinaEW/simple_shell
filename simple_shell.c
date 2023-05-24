@@ -16,7 +16,6 @@ int main(int argc, char *argv[], char **env)
 	pid_t pid;
 	(void)argc;
 	(void)env;
-	(void)read_copy;
 	while (1 && !from_pipe)
 	{
 		if (isatty(STDIN_FILENO) == 0)
@@ -42,7 +41,10 @@ int main(int argc, char *argv[], char **env)
 		if (pid == 0)
 		{
 			if (execve(argv[0], argv, NULL) == -1)
+			{
 				perror("./shell");
+				exit(EXIT_FAILURE);
+			}
 		}
 		else
 			wait(NULL);
