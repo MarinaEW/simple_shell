@@ -3,20 +3,21 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdio.h>
-/*
- * twomain - entry point, fn. that handles command line with arg.
+/**
+ * main - fn. that handles command line with arg.
  * @argc: no. of arg
  * @argv: char. in a string
  * Retutn: 0 (sucess)
  */
-int twomain(int argc, char **argv)
+int main(int argc, char **argv)
 {
 size_t n = 0;
 char *cmd = NULL, *cmd_cpy = NULL, *token = NULL;
-char *delim = " \n";
+char *delim = " ";
 int i = 0;
 argc = 0;
 *argv = 0;
+
 printf("$ ");
 if (getline(&cmd, &n, stdin) == -1)
 	return (-1);
