@@ -7,7 +7,7 @@
  * main - fn. that handles command line with arg.
  * @argc: no. of arg
  * @argv: char. in a string
- * Retutn: 0 (sucess)
+ * Return: 0 (sucess)
  */
 int main(int argc, char **argv)
 {
