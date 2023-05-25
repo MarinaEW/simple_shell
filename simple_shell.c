@@ -3,19 +3,15 @@
  * main - entry point
  * @argc: no. of characters
  * @argv: array of characters
- * @env: returns the environment
  * Return: 0 (success)
  */
-int main(int argc, char *argv[], char **env)
+int main(int argc, char *argv[])
 {
-	char *prompt = "#cisfun$ ";
-	char *buff = NULL;
+	char *prompt = "#cisfun$ ", *buff = NULL, read;
 	size_t n = 0;
-	char read;
 	bool from_pipe = false;
 	pid_t pid;
 	(void)argc;
-	(void)env;
 	while (1 && !from_pipe)
 	{
 		if (isatty(STDIN_FILENO) == 0)
