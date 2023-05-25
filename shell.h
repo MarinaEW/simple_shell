@@ -101,4 +101,54 @@ void _eputs(char *s);
 int _eputchar(char c);
 int _putfd(char ch, int fd);
 int _putsfd(char *string, int fd);
+
+/* toem_builtin.c */
+int _myexit(info_t *infor);
+int _mycd(info_t *info);
+int _myhelp(info_t *info);
+
+/* toem_lists.c */
+list_t *add_node(list_t **head, const char *string, int n);
+list_t *add_node_end(list_t **head, const char *string, int num);
+size_t print_list_str(const list_t *);
+int delete_node_at_index(list_t **head, unsigned int index);
+void free_list(list_t **head_p);
+
+/* toem_environ.c */
+char *_getenv(info_t *info, const char *name);
+int _myenv(info_t *info);
+int _mysetenv(info_t *info);
+int _myunsetenv(info_t *info);
+int populate_env_list(info_t *info);
+
+/* toem_string.c */
+int _strlen(char *ch);
+int _strcmp(char *s1, char *s2);
+char *starts_with(const char *stack, const char *needle);
+char *_strcat(char *dest, char *src);
+
+/* toem_getenv.c */
+char **get_environ(info_t *info);
+int _unsetenv(info_t *info, char *var);
+int _setenv(info_t *info, char *var, char *value);
+
+/* toem_realloc.c */
+char *_memset(char *ch, char b, unsigned int n);
+void ffree(char **ff);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+
+/* toem_lists1.c */
+size_t list_len(const list_t *h);
+char **list_to_strings(list_t *head);
+size_t print_list(const list_t *h);
+list_t *node_starts_with(list_t *node, char *prefix, char str);
+ssize_t get_node_index(list_t *head, list_t *node);
+
+/* toem_errors1.c */
+int _erratoi(char *str;
+void print_error(info_t *info, char *estr);
+int print_d(int input, int fdes);
+char *convert_number(long int in, int base, int flags);
+void remove_comments(char *buf);
+
 #endif
