@@ -2,7 +2,7 @@
 
 /**
  **_memset - fills memory with a constant byte
- *@s: the pointer to the memory area
+ *@ch: the pointer to the memory area
  *@b: the byte to fill *s with
  *@n: the amount of bytes to be filled
  *Return: (s) a pointer to the memory area s
@@ -18,7 +18,7 @@ char *_memset(char *ch, char b, unsigned int n)
 
 /**
  * ffree - frees a string of strings
- * @pp: string of strings
+ * @ff: string of strings
  */
 void ffree(char **ff)
 {

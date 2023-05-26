@@ -2,7 +2,7 @@
 
 /**
  * _strlen - returns the length of a string
- * @s: the string whose length to check
+ * @ch: the string whose length to check
  *
  * Return: integer length of string
  */
@@ -10,10 +10,10 @@ int _strlen(char *ch)
 {
 	int i = 0;
 
-	if (!s)
+	if (!ch)
 		return (0);
 
-	while (*s++)
+	while (*ch++)
 		i++;
 	return (i);
 }
@@ -64,11 +64,12 @@ char *starts_with(const char *stack, const char *needle)
  */
 char *_strcat(char *dest, char *src)
 {
-	char *ret = dest;
-	while (*dest)
-		dest++;
-	while (*src)
-		*dest++ = *src++;
-	*dest = *src;
-	return (ret);
+char *ret = dest;
+
+while (*dest)
+dest++;
+while (*src)
+*dest++ = *src++;
+*dest = *src;
+return (ret);
 }

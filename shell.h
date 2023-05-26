@@ -145,7 +145,7 @@ list_t *node_starts_with(list_t *node, char *prefix, char str);
 ssize_t get_node_index(list_t *head, list_t *node);
 
 /* toem_errors1.c */
-int _erratoi(char *str;
+int _erratoi(char *str);
 void print_error(info_t *info, char *estr);
 int print_d(int input, int fdes);
 char *convert_number(long int in, int base, int flags);

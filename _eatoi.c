@@ -2,30 +2,30 @@
 
 /**
  * _erratoi - converts a string to an integer
- * @str: the string to be converted
+ * @s: the string to be converted
  * Return: 0 if no numbers in string, converted number otherwise
  *       -1 on error
  */
-int _erratoi(char *str)
+int _erratoi(char *s)
 {
-	int m = 0;
-	unsigned long int result = 0;
+	int n = 0;
+	unsigned long int res = 0;
 
-	if (*str == '+')
+	if (*s == '+')
 		s++;  /* TODO: why does this make main return 255? */
-	for (m = 0;  str[m] != '\0'; i++)
+	for (n = 0;  s[n] != '\0'; n++)
 	{
-		if (str[m] >= '0' && str[m] <= '9')
+		if (s[n] >= '0' && s[n] <= '9')
 		{
-			result *= 10;
-			result += (str[m] - '0');
-			if (result > INT_MAX)
+			res *= 10;
+			res += (s[n] - '0');
+			if (res > INT_MAX)
 				return (-1);
 		}
 		else
 			return (-1);
 	}
-	return (result);
+	return (res);
 }
 
 /**
@@ -39,7 +39,7 @@ void print_error(info_t *info, char *estr)
 {
 	_eputs(info->fname);
 	_eputs(": ");
-	print_d(info->line_count, STDERR_FILENO);
+	print_dec(info->line_count, STDERR_FILENO);
 	_eputs(": ");
 	_eputs(info->argv[0]);
 	_eputs(": ");
@@ -47,16 +47,16 @@ void print_error(info_t *info, char *estr)
 }
 
 /**
- * print_d - function prints a decimal (integer) number (base 10)
+ * print_dec - function prints a decimal (integer) number (base 10)
  * @input: the input
  * @fdes: the filedescriptor to write to
  *
  * Return: number of characters printed
  */
-int print_d(int input, int fdes)
+int print_dec(int input, int fdes)
 {
 	int (*__putchar)(char) = _putchar;
-	int k, count = 0;
+	int i, count = 0;
 	unsigned int _abs_, current;
 
 	if (fdes == STDERR_FILENO)
@@ -70,7 +70,7 @@ int print_d(int input, int fdes)
 	else
 		_abs_ = input;
 	current = _abs_;
-	for (k = 1000000000; k > 1; k /= 10)
+	for (i = 1000000000; i > 1; i /= 10)
 	{
 		if (_abs_ / i)
 		{
@@ -81,28 +81,29 @@ int print_d(int input, int fdes)
 	}
 	__putchar('0' + current);
 	count++;
+
 	return (count);
 }
 
 /**
- * convert_number - converter function, a clone of itoa
- * @in: number
+ * conv_number - converter function, a clone of atoi
+ * @num: number
  * @base: base
  * @flags: argument flags
  *
  * Return: string
  */
-char *convert_number(long int in, int base, int flags)
+char *conv_number(long int num, int base, int flags)
 {
 	static char *array;
 	static char buffer[50];
 	char sign = 0;
 	char *ptr;
-	unsigned long n = in;
+	unsigned long n = num;
 
-	if (!(flags & CONVERT_UNSIGNED) && in < 0)
+	if (!(flags & CONVERT_UNSIGNED) && num < 0)
 	{
-		n = -in;
+		n = -num;
 		sign = '-';
 
 	}
@@ -121,18 +122,19 @@ char *convert_number(long int in, int base, int flags)
 }
 
 /**
- * remove_comments - function replaces first instance of '#' with '\0'
+ * rm_comments - function replaces first instance of '#' with '\0'
  * @buf: address of the string to modify
  *
  * Return: Always 0;
  */
-void remove_comments(char *buf)
+void rm_comments(char *buf)
 {
-int n;
-for (n = 0; buf[n] != '\0'; n++)
-if (buf[n] == '#' && (!n || buf[n - 1] == ' '))
-{
-buf[n] = '\0';
-break;
-}
+	int i;
+
+	for (i = 0; buf[i] != '\0'; i++)
+		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
+		{
+			buf[i] = '\0';
+			break;
+		}
 }

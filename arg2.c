@@ -4,12 +4,12 @@
 #include <unistd.h>
 #include <stdio.h>
 /**
- * main - fn. that handles command line with arg.
+ * twomain - fn. that handles command line with arg.
  * @argc: no. of arg
  * @argv: char. in a string
  * Return: 0 (sucess)
  */
-int main(int argc, char **argv)
+int twomain(int argc, char **argv)
 {
 size_t n = 0;
 char *cmd = NULL, *cmd_cpy = NULL, *token = NULL;
