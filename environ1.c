@@ -1,13 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
 /**
- * main - entry point
+ * fourmain - entry point
  * @argc: no. of arg
  * @argv: string of characters
  * @envp: array
  * Return: 0 (succes)
  */
-int main(int argc, char *argv[], char *envp[])
+int fourmain(int argc, char *argv[], char *envp[])
 {
 int i = 0;
 (void)argc;

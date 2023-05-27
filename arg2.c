@@ -17,8 +17,9 @@ char *delim = " ";
 int i = 0;
 argc = 0;
 *argv = 0;
+while (1)
+{
 
-printf("$ ");
 if (getline(&cmd, &n, stdin) == -1)
 	return (-1);
 cmd_cpy = strdup(cmd);
@@ -46,4 +47,5 @@ free(cmd);
 free(cmd_cpy);
 free(argv);
 return (0);
+}
 }

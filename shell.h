@@ -46,7 +46,9 @@ char *get_location(char *commands);
  */
 typedef struct liststr
 {
+	int n;
 	int num;
+	const char *string;
 	char *str;
 	struct liststr *next;
 } list_t;
@@ -90,7 +92,7 @@ int _isalpha(int alpha);
 int _atoi(char *string);
 
 /* toem_errors1.c */
-int _erratoi(char *);
+int _oneerratoi(char *);
 void print_error(info_t *, char *);
 int print_dec(int, int);
 char *conv_number(long int, int, int);
@@ -109,7 +111,7 @@ int _myhelp(info_t *info);
 
 /* toem_lists.c */
 list_t *add_node(list_t **head, const char *string, int n);
-list_t *add_node_end(list_t **head, const char *string, int num);
+list_t *add_node_end(list_t **head, const char *string, int n);
 size_t print_list_str(const list_t *);
 int delete_node_at_index(list_t **head, unsigned int index);
 void free_list(list_t **head_p);
@@ -135,7 +137,7 @@ int _setenv(info_t *info, char *var, char *value);
 /* toem_realloc.c */
 char *_memset(char *ch, char b, unsigned int n);
 void ffree(char **ff);
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 
 /* toem_lists1.c */
 size_t list_len(const list_t *h);

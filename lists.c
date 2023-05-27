@@ -56,7 +56,7 @@ list_t *add_node_end(list_t **head, const char *string, int num)
 	new_node->num = num;
 	if (string)
 	{
-		new_node->string = _strdup(str);
+		new_node->string = _strdup(string);
 		if (!new_node->string)
 		{
 			free(new_node);
@@ -91,7 +91,7 @@ size_t print_list_str(const list_t *h)
 		h = h->next;
 		n++;
 	}
-	return (i);
+	return (n);
 }
 
 /**

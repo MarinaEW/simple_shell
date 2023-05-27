@@ -1,19 +1,19 @@
 #include "shell.h"
 
 /**
- * _erratoi - converts a string to an integer
+ * _oneerratoi - converts a string to an integer
  * @str: the string to be converted
  * Return: 0 if no numbers in string, converted number otherwise
  *       -1 on error
  */
-int _erratoi(char *str)
+int _oneerratoi(char *str)
 {
 	int m = 0;
 	unsigned long int result = 0;
 
 	if (*str == '+')
-		s++;  /* TODO: why does this make main return 255? */
-	for (m = 0;  str[m] != '\0'; i++)
+		str++;  /* TODO: why does this make main return 255? */
+	for (m = 0;  str[m] != '\0'; m++)
 	{
 		if (str[m] >= '0' && str[m] <= '9')
 		{
@@ -72,12 +72,12 @@ int print_d(int input, int fdes)
 	current = _abs_;
 	for (k = 1000000000; k > 1; k /= 10)
 	{
-		if (_abs_ / i)
+		if (_abs_ / k)
 		{
-			__putchar('0' + current / i);
+			__putchar('0' + current / k);
 			count++;
 		}
-		current %= i;
+		current %= k;
 	}
 	__putchar('0' + current);
 	count++;

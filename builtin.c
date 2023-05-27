@@ -16,7 +16,7 @@ int _myexit(info_t *infor)
 		exitcheck = _erratoi(infor->argv[1]);
 		if (exitcheck == -1)
 		{
-			info->status = 2;
+			infor->status = 2;
 			print_error(infor, "Illegal number: ");
 			_eputs(infor->argv[1]);
 			_eputchar('\n');
@@ -25,7 +25,7 @@ int _myexit(info_t *infor)
 		infor->err_num = _erratoi(infor->argv[1]);
 		return (-2);
 	}
-	info->err_num = -1;
+	infor->err_num = -1;
 	return (-2);
 }
 
